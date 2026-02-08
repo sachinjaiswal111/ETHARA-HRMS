@@ -28,7 +28,8 @@ SECRET_KEY = 'django-insecure-ki+jmu^hjaqy1ps&c#ooh73o=&#^k_6t%^+)u0l-d#c0u66fy=
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS =  ["ethara-hrms-1-a5ly.onrender.com"]
+
 
 
 # Application definition
