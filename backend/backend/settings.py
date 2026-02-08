@@ -185,7 +185,7 @@ INSTALLED_APPS = [
     "corsheaders",
 
     # Local apps
-    "your_app_name_here",   # 🔁 change this
+     'management_system'   # 🔁 change this
 ]
 
 # =========================
