@@ -164,7 +164,7 @@ DEBUG = False  # Set True only for local debugging
 
 ALLOWED_HOSTS = [
     "ethara-hrms-lh4p.vercel.app",
-     ".onrender.com",
+    ".onrender.com",
     "localhost",
     "127.0.0.1",
 ]
@@ -205,11 +205,14 @@ MIDDLEWARE = [
 # =========================
 # CORS & CSRF (React)
 # =========================
-CORS_ALLOW_CREDENTIALS = True
+# CORS_ALLOW_CREDENTIALS = True
+CORS_ALLOW_ALL_ORIGINS = True
 
-CORS_ALLOWED_ORIGINS = [
-    "https://ethara-hrms-lh4p.vercel.app",
-]
+
+# CORS_ALLOWED_ORIGINS = [
+#     "https://ethara-hrms-lh4p.vercel.app",
+#    "http://localhost:5174"
+# ]
 
 CSRF_TRUSTED_ORIGINS = [
     "https://ethara-hrms-lh4p.vercel.app",

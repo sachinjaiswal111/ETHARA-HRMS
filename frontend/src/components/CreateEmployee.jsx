@@ -74,7 +74,7 @@ function CreateEmployee({setOpenForm}) {
                 <div>
                     <label class="mb-2 text-sm text-slate-900 font-medium block">Employee Name</label>
                     <div class="relative flex items-center">
-                        <input type="text" placeholder="Last Name"
+                        <input type="text" placeholder="Name"
                             class="px-4 py-3 pr-8 bg-[#f0f1f2] focus:bg-transparent text-black w-full text-sm border border-gray-200 outline-[#007bff] rounded-md transition-all" onChange={(e) => setFromData({ ...fromData, name: e.target.value })} />
                         <svg xmlns="http://www.w3.org/2000/svg" fill="#bbb" stroke="#bbb" class="w-[18px] h-[18px] absolute right-4"
                             viewBox="0 0 24 24">

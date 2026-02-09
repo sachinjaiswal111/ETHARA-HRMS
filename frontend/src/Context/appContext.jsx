@@ -8,6 +8,7 @@ export const AppContext = createContext();
 
 axios.defaults.withCredentials=false;
 axios.defaults.baseURL= import.meta.env.VITE_BACKEND_URL
+console.log("API URL:", import.meta.env.VITE_BACKEND_URL);
 
 export const AppContextProvider = ({ children }) => {
 
