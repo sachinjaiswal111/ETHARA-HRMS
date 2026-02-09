@@ -6,42 +6,61 @@ import { useNavigate } from "react-router-dom";
 export const AppContext = createContext();
 
 
-axios.defaults.withCredentials=false;
-axios.defaults.baseURL= import.meta.env.VITE_BACKEND_URL
+axios.defaults.withCredentials = false;
+axios.defaults.baseURL = import.meta.env.VITE_BACKEND_URL
 console.log("API URL:", import.meta.env.VITE_BACKEND_URL);
 
 export const AppContextProvider = ({ children }) => {
 
 
 
-    const navigate =useNavigate();
-    const [employees,setEmployees] = useState([])
-    const [countEmployees, setCountEmployess]=useState({
-        present:0,
-        absent:0
+    const navigate = useNavigate();
+    const [employees, setEmployees] = useState([])
+    const [countEmployees, setCountEmployess] = useState({
+        present: 0,
+        absent: 0
     })
-    
+    const fetchTodayAttendanceCount = async () => {
+        try {
+            const today = new Date().toISOString().split("T")[0];
 
-    const fetchEmployee = async()=>{
-        try{
-            const {data} = await axios.get('/employees');
+            const { data } = await axios.get(`/attendance/?date=${today}`);
+
+            let present = 0;
+            let absent = 0;
+
+            data.data.forEach(emp => {
+                if (emp.status === "PRESENT") present++;
+                else if (emp.status === "ABSENT") absent++;
+            });
+
+            setCountEmployess({ present, absent });
+        } catch (err) {
+            console.log(err);
+        }
+    };
+
+    const fetchEmployee = async () => {
+        try {
+            const { data } = await axios.get('/employees');
             setEmployees(data);
-        }catch(e){
+        } catch (e) {
             console.log(e);
         }
     }
 
 
-    useEffect(()=>{
+    useEffect(() => {
         fetchEmployee()
+        fetchTodayAttendanceCount()
 
-    },[])
-    
+    }, [])
 
 
-    
+
+
     const value = {
-        navigate,employees,setEmployees,axios,countEmployees,setCountEmployess
+        navigate, employees, setEmployees, axios, countEmployees, setCountEmployess
     };
 
     return (

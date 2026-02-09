@@ -11,7 +11,7 @@ function MarkAttendence() {
     const [leaveCount, setLeaveCount] = useState(0);
 
 
-    const { axios,setCountEmployess } = useAppContext();
+    const { axios, } = useAppContext();
     const [attendance, setAttendance] = useState([]);
 
 
@@ -49,7 +49,7 @@ function MarkAttendence() {
         setPresentCount(present);
         setAbsentCount(absent);
         setLeaveCount(leave);
-        setCountEmployess({present:presentCount,absent:absentCount})
+        
     }, [selectedDate]);
 
 

@@ -6,6 +6,7 @@ import toast from 'react-hot-toast';
 function Home() {
 
     const {employees,navigate,countEmployees} =useAppContext();
+    console.log(countEmployees);
     return (
         <div className='p-10'>
             <div className='py-1 flex flex-col gap-1'>
@@ -35,7 +36,7 @@ function Home() {
                         <div className='flex flex-col gap-7'>
                             <p className='font-semibold text-[#68778d]'>Present Today</p>
                             <div>
-                                <p className='text-3xl font-bold text-[#1c3a5f]'>{countEmployees.present===0?"Attendance Pending":countEmployees.absent}</p>
+                                <p className='text-3xl font-bold text-[#1c3a5f]'>{countEmployees.present===0?"Attendance Pending":countEmployees.present}</p>
                                 <p className='text-sm text-[#68778d]'>Acitvate Employee in system</p>
                             </div>
 
