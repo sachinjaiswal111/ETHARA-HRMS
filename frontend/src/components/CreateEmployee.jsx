@@ -3,7 +3,7 @@ import toast from 'react-hot-toast'
 import { useAppContext } from '../Context/appContext'
 
 function CreateEmployee({setOpenForm}) {
-    const { axios,employees,setEmployees } = useAppContext()
+    const { axios,employees,setEmployees,navigate } = useAppContext()
     const [fromData, setFromData] = useState({
         name: "",
         Employee_Id: "",
@@ -41,9 +41,10 @@ function CreateEmployee({setOpenForm}) {
     );
 
     console.log(response.data);
-    toast.success("Employee added successfully");
     setOpenForm(false);
     setEmployees(...employees,response.data)
+    navigate("/")
+    toast.success("Employee added successfully");
 
   } catch (e) {
     console.error(e.response?.data || e.message);
